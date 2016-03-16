@@ -1,0 +1,36 @@
+$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git
+
+$ git pull
+
+If your tarball is compressed with bzip2, run
+$ tar xvjf linux-x.y.z.tar.bz2
+If it is compressed with GNU zip, run
+$ tar xvzf linux-x.y.z.tar.gz
+
+$ make menuconfig
+
+$ make gconfig
+
+This command creates a configuration based on the defaults for your architecture:
+$ make defconfig
+
+
+After making changes to your configuration file, or when using an existing con-
+figuration file on a new kernel tree, you can validate and update the configuration:
+$ make oldconfig
+You should always run this before building a kernel.
+
+After the kernel configuration is set—however you do it—you can build it with a sin-
+gle command:
+$ make
+
+$ make -jn
+
+$ make > ../detritus
+
+$ make > /dev/null
+
+
+Installing modules, thankfully, is automated and architecture-independent. As root,
+simply run
+% make modules_install
